@@ -1,7 +1,6 @@
 'use client';
 
 import { addDays, format } from 'date-fns';
-import { useState } from 'react';
 
 import {
   Popover,
@@ -11,9 +10,13 @@ import {
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Calendar } from '@/components/ui/calendar';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 const BaekChallengeDateSelector = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useLocalStorage<Date | undefined>(
+    'baek-date',
+    new Date()
+  );
   const endDate = format(addDays(date || new Date(), 100), 'yyyy.LL.dd');
   return (
     <div className='py-1 border-b border-b-primary flex items-center gap-1'>

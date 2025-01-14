@@ -7,11 +7,12 @@ import { Button } from '@/components/ui/button';
 
 type BaekChallengeItemProps = {
   day: number;
+  checked: boolean;
+  onCheck: () => void;
 };
 
 const BaekChallengeItem = (props: BaekChallengeItemProps) => {
-  const { day } = props;
-  const [clicked, setIsClicked] = useState(false);
+  const { day, checked, onCheck } = props;
   const borderR = day % 10 !== 0 ? 'border-r' : '';
 
   return (
@@ -20,10 +21,10 @@ const BaekChallengeItem = (props: BaekChallengeItemProps) => {
       <Button
         className='w-full h-full justify-start px-0 items-start py-0 hover:bg-accent-transparent'
         variant='ghost'
-        onClick={() => setIsClicked((prev) => !prev)}>
+        onClick={onCheck}>
         {day}
       </Button>
-      {clicked && (
+      {checked && (
         <Check
           className='absolute top-1.5 left-2 pointer-events-none'
           size={48}
