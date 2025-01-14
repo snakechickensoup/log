@@ -7,7 +7,7 @@ const BaekChallengeTitle = () => {
       <Label className='text-2xl'>TITLE: </Label>
       <Input
         type='text'
-        className='border-none flex-1 text-xl focus-visible:ring-transparent'
+        className='border-none flex-1 text-2xl focus-visible:ring-transparent'
       />
     </div>
   );
